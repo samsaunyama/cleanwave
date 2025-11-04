@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Wave | Premium Cleaning Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #27ae60; /* Green */
+            --secondary: #3498db; /* Blue */
+            --accent: #e74c3c; /* Red */
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-green {
+            background-color: var(--primary);
+        }
+
+        .btn-green:hover {
+            background-color: #219653;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a6840 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-icon {
+            background-color: var(--secondary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Direct Contact Section */
+        .direct-contact {
+            background-color: white;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-method {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .contact-method h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .contact-method p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .contact-method a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-method a:hover {
+            background-color: var(--primary);
+        }
+
+        /* Order Form Section */
+        .order-form {
+            background-color: var(--light);
+        }
+
+        .order-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .order-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+       
+        /* ADDED: Style for new clickable links */
+        .contact-detail p a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-detail p a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        /* END ADDED */
+
+        .contact-detail i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                text-align: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .order-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-pump-soap" aria-hidden="true"></i>Clean<span>Wave</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#direct-contact">Contact</a></li>
+                    <li><a href="#order-form">Order Now</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ADDED: Main tag for semantic structure -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Powerful Cleaning Solutions for Your Home</h1>
+                    <p>Clean Wave offers premium cleaning products that deliver exceptional results. Our formulas are tough on dirt but gentle on surfaces.</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn">Our Products</a>
+                        <a href="#order-form" class="btn btn-green">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Products</h2>
+                    <p>Discover our range of effective cleaning solutions</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon" style="background-color: var(--secondary);">
+                            <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3>Dishwashing Liquid</h3>
+                            <p>Our powerful formula cuts through grease and leaves your dishes sparkling clean with a fresh citrus scent.</p>
+                            <a href="#order-form" class="btn" style="margin-top: 15px;">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon" style="background-color: var(--primary);">
+                            <i class="fas fa-toilet" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3>Toilet Cleaner</h3>
+                            <p>Eliminates stains, germs, and odors with our specially formulated toilet cleaner that works quickly and effectively.</p>
+                            <a href="#order-form" class="btn" style="margin-top: 15px;">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon" style="background-color: var(--accent);">
+                            <i class="fas fa-hands-wash" aria-hidden="true"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3>Liquid Soap</h3>
+                            <p>Gentle on skin yet effective at removing dirt and germs. Available in multiple refreshing scents.</p>
+                            <a href="#order-form" class="btn" style="margin-top: 15px;">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Clean Wave</h2>
+                        <p>Founded in 2024, Clean Wave is a Zimbabwean manufacturer dedicated to producing high-quality cleaning products for households and businesses.</p>
+                        <p>We started with three core products - dishwashing liquid, toilet cleaner, and liquid soap - with plans to expand our range to include laundry detergents, surface cleaners, and specialized industrial cleaning solutions in the near future.</p>
+                        <p>Our mission is to provide effective, affordable, and environmentally conscious cleaning solutions that make everyday chores easier and more efficient.</p>
+                        <a href="#direct-contact" class="btn btn-green">Get In Touch</a>
+                    </div>
+                    <!-- UPDATED: Replaced div with a semantic img placeholder -->
+                    <div class="about-image">
+                        <img src="https://placehold.co/600x400/3498db/ffffff?text=Clean+Wave+Products" alt="Clean Wave product line placeholder" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct Contact Section -->
+        <section class="direct-contact" id="direct-contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Direct Contact</h2>
+                    <p>Reach out to us directly through your preferred platform</p>
+                </div>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <h3>WhatsApp</h3>
+                        <p>Message us directly on WhatsApp for quick responses to your inquiries</p>
+                        <a href="https://wa.me/263787557391" target="_blank">Message Now</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                        <h3>X (Twitter)</h3>
+                        <p>Follow us and send a DM on X for updates and customer support</p>
+                        <a href="https://twitter.com/SaunyamaSamuel" target="_blank">Follow & DM</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                        <h3>Facebook</h3>
+                        <p>Connect with us on Facebook for the latest news and promotions</p>
+                        <a href="https://facebook.com/samuel.saunyama.1" target="_blank">Connect Now</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <h3>Instagram</h3>
+                        <p>Follow our Instagram for product highlights and cleaning tips</p>
+                        <a href="https://instagram.com/dc.hennessey" target="_blank">Follow Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Form Section -->
+        <section class="order-form" id="order-form">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Place Your Order</h2>
+                    <p>Fill out the form below and we'll get back to you with pricing and delivery details</p>
+                </div>
+                <div class="order-container">
+                    <h3>Order Inquiry Form</h3>
+                    <!--
+                        UPDATED:
+                        The action URL has been replaced with your live Formspree endpoint.
+                    -->
+                    <form action="https://formspree.io/f/xanlgvnq" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product">Product Interest *</label>
+                                <select id="product" name="product" required>
+                                    <option value="">Select a product</option>
+                                    <option value="Dishwashing Liquid">Dishwashing Liquid</option>
+                                    <option value="Toilet Cleaner">Toilet Cleaner</option>
+                                    <option value="Liquid Soap">Liquid Soap</option>
+                                    <option value="Multiple Products">Multiple Products</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Estimated Quantity</label>
+                            <input type="text" id="quantity" name="quantity" placeholder="e.g., 10 bottles, 5 liters, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" name="message" placeholder="Tell us more about your order requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-green" style="width: 100%;">Submit Order Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Customer Reviews</h2>
+                    <p>See what our customers have to say about Clean Wave products</p>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <p class="testimonial-content">"Clean Wave's dishwashing liquid is the best I've ever used! It cuts through grease effortlessly and leaves my dishes sparkling without any residue."</p>
+                        <p class="testimonial-author">Tendai M.</p>
+                        <p class="testimonial-role">Harare</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch for general inquiries or wholesale opportunities</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Our Address</h4>
+                                    <p>7329 94th Crescent<br>Glen View 8<br>Harare, Zimbabwe</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <!-- UPDATED: Made phone number clickable -->
+                                    <p><a href="tel:+263787557391">+263 787 557 391</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <!-- UPDATED: Made email address clickable -->
+                                    <p><a href="mailto:samsaunyama@outlook.com">samsaunyama@outlook.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://wa.me/263787557391" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/SaunyamaSamuel" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://facebook.com/samuel.saunyama.1" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="https.instagram.com/dc.hennessey" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <!--
+                            UPDATED:
+                            The action URL has been replaced with your live Formspree endpoint.
+                        -->
+                        <form action="https://formspree.io/f/xanlgvnq" method="POST">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <!-- UPDATED: Changed 'name="email"' to 'name="_replyto"' for Formspree 'Reply-to' feature -->
+                            <input type="email" name="_replyto" placeholder="Your Email" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn btn-green">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Clean Wave</h3>
+                    <p>Providing premium cleaning solutions for Zimbabwean homes and businesses since 2024.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#direct-contact">Contact</a></li>
+                        <li><a href="#order-form">Order Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products">Dishwashing Liquid</a></li>
+                        <li><a href="#products">Toilet Cleaner</a></li>
+                        <li><a href="#products">Liquid Soap</a></li>
+                        <li><a href="#products">Future Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for updates and special offers.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/263787557391" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/SaunyamaSamuel" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com/samuel.saunyama.1" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https.instagram.com/dc.hennessey" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Clean Wave. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
